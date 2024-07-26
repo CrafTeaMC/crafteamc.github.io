@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFTEA - Ana Sayfa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <main>
+        <section class="hero">
+            <h1>CrafTea Nedir?</h1>
+            <p>CrafTea Minecraft içerikleri üreten bir toplulukdur, biz minecraft üzerinden mapler yaparız. Eğer maplerimizi indirmek/eğlenmek istiyorsanız aşağıdaki butona basın ve eğelenin!</p>
+            <button onclick="location.href='maps.html'">Maplerimiz</button>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="load-navbar-footer.js"></script>
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "flex") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "flex";
+      }
+    }
+    </script>
+</body>
+</html>
