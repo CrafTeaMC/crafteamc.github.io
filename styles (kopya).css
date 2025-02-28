@@ -130,14 +130,11 @@ footer {
 }
 
 .blog-post {
-    background: #0a1a2a;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #001018; /* Corrected color code */
+    padding: 1rem;
+    margin-bottom: 1rem;
     display: flex;
-    flex-direction: column;
-    min-height: 400px; /* Minimum yükseklik garantisi */
+    align-items: center;
 }
 
 .blog-content-container {
@@ -190,12 +187,11 @@ footer {
 }
 
 .normal-blog-thumbnail {
-    width: 100%;
-    height: 200px; /* Sabit yükseklik */
-    object-fit: cover;
-    border-radius: 8px 8px 0 0 !important; /* Üst köşeleri yuvarlak */
-    margin: 0 !important;
-    display: block; /* Alt boşluğu önlemek için */
+    max-width: 300px;
+    max-height: 300px;
+    margin-left: 20px;
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 @media (max-width: 769px) {
@@ -291,67 +287,17 @@ footer {
 }
 
 #search-bar {
-  /* Konumlandırma */
   position: absolute;
-  left: 50%;
-  top: 160px; /* Yeni eklenen */
-  transform: translate(-50%, -50%);
+  left: 50%;           /* Yatayda başlangıç noktasını ayarla */
+  transform: translate(-50%, -50%); /* Kendi boyutunun yarısı kadar kaydır */
   
-  /* Boyutlandırma */
-  width: calc(3 * (330px + 2rem));
-  max-width: 90%;
-  padding: 15px 25px; /* Optimize edildi */
-
-  margin: 2rem 0; /* Yeni eklenen */
-  
-  /* Mevcut Stil İyileştirmeleri */
-  background: linear-gradient(145deg, #001825, #001018);
-  border: 2px solid #1a3a5a;
-  border-radius: 35px;
-  box-shadow: 0 8px 25px rgba(0, 60, 100, 0.4);
-  color: #e3f2fd;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-
-  /* İkonlu Versiyon */
-  background-image: url('search-icon.png');
-  background-repeat: no-repeat;
-  background-position: 97% center;
-  background-size: 25px;
-  padding-right: 60px;
-
-  @media (max-width: 1000px) {
-    width: 80% !important;
-  }
-
-  /* Mobil İçin Medya Sorgusu */
-  @media (max-width: 768px) {
-    width: 70% !important;
-    max-width: 80% !important;
-    padding: 12px 20px;
-    font-size: 1rem;
-    background-size: 18px;
-    padding-right: 45px;
-  }
-}
-
-
-/* Hover & Focus States */
-#search-bar:hover {
-  transform: translate(-50%, -50%) scale(1.02);
-  box-shadow: 0 12px 30px rgba(0, 80, 120, 0.5);
-}
-
-#search-bar:focus {
-  transform: translate(-50%, -50%) scale(1.02);
-  outline: none;
-  border-color: #3a5a7a;
-}
-
-/* Placeholder Stili */
-#search-bar::placeholder {
-  color: #8b9eb0;
-  letter-spacing: 0.8px;
+  /* Mevcut stilleriniz */
+  background-color: #000c12;
+  color: white;
+  width: 320px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 body {
@@ -429,20 +375,15 @@ body {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    grid-auto-rows: 1fr; /* Tüm kartları eşit yükseklikte yapar */
-    margin-top: 6rem; /* Yeni eklenen */
-    padding-bottom: 3rem; /* Yeni eklenen */
 }
 
 /* Yeni Kart Tasarımı */
 .blog-post {
-    position: relative;
     background: #0a1a2a;
     border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 100%; /* Kartların eşit yükseklikte olması için */
     display: flex;
     flex-direction: column;
 }
@@ -464,9 +405,6 @@ body {
 .blog-content-container {
     padding: 1.5rem;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* Elemanlar arası sabit boşluk */
 }
 
 .blog-post h2 {
@@ -487,40 +425,20 @@ body {
 .blog-content {
     color: #c3d4e5;
     line-height: 1.6;
-    flex-grow: 1; /* İçerik ile buton arasındaki boşluğu doldurur */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Maksimum 3 satır gösterim */
-    -webkit-box-orient: vertical;
+    margin-bottom: 1.5rem;
 }
 
 .read-more {
+    display: inline-block;
     background: #1a3a5a;
     color: white !important;
-    padding: 12px 24px;
-    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 15px;
     text-decoration: none;
-    text-align: center;
-    margin-top: auto; /* Butonu her zaman alta yapıştırır */
-    width: fit-content;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    display: block; /* Buton kaymalarını önler */
+    transition: background 0.3s ease;
 }
 
 .read-more:hover {
     background: #2a4a6a;
-    border-color: #3a5a7a;
-}
-
-@media (max-width: 768px) {
-    .normal-blog-thumbnail {
-        height: 180px; /* Mobilde daha kompak */
-    }
-    
-    #blog-posts {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
 }
 

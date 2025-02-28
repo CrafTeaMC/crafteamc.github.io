@@ -5,63 +5,95 @@ document.addEventListener('DOMContentLoaded', () => {
             const blogPostsContainer = document.getElementById('blog-posts');
             const searchBar = document.getElementById('search-bar');
 
-            const displayPosts = (posts) => {
+            const createPostElement = (post) => {
+                const postElement = document.createElement('div');
+                postElement.className = 'blog-post';
+
+                // Thumbnail kısmı
+                if (post.thumbnail) {
+                    const thumbnailImg = document.createElement('img');
+                    thumbnailImg.src = post.thumbnail;
+                    thumbnailImg.alt = `${post.title} thumbnail`;
+                    thumbnailImg.className = 'normal-blog-thumbnail';
+                    postElement.appendChild(thumbnailImg);
+                }
+
+                // İçerik konteynırı
+                const contentContainer = document.createElement('div');
+                contentContainer.className = 'blog-content-container';
+
+                // Başlık
+                const titleLink = document.createElement('a');
+                titleLink.href = `map-detail.html?post=${post.index}`;
+                const title = document.createElement('h2');
+                title.textContent = post.title;
+                titleLink.appendChild(title);
+
+                // Tarih
+                const date = document.createElement('p');
+                date.className = 'blog-date';
+                date.textContent = new Date(post.date).toLocaleDateString('tr-TR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // İçerik
+                const content = document.createElement('div');
+                content.className = 'blog-content';
+                const truncatedContent = post.content.length > 100 
+                    ? `${post.content.substring(0, 100)}...` 
+                    : post.content;
+                content.innerHTML = truncatedContent;
+
+                // Detay butonu
+                const readMore = document.createElement('a');
+                readMore.className = 'read-more';
+                readMore.href = `map-detail.html?post=${post.index}`;
+                readMore.textContent = 'Haritayı İncele →';
+
+                // Elemanları birleştirme
+                contentContainer.appendChild(titleLink);
+                contentContainer.appendChild(date);
+                contentContainer.appendChild(content);
+                contentContainer.appendChild(readMore);
+                postElement.appendChild(contentContainer);
+
+                return postElement;
+            };
+
+            const renderPosts = (posts) => {
                 blogPostsContainer.innerHTML = '';
                 posts.forEach(post => {
-                    const postElement = document.createElement('div');
-                    postElement.classList.add('blog-post');
-
-                    const contentContainer = document.createElement('div');
-                    contentContainer.classList.add('blog-content-container');
-
-                    const titleElement = document.createElement('h2');
-                    const linkElement = document.createElement('a');
-                    linkElement.href = `map-detail.html?post=${post.index}`;
-                    linkElement.textContent = post.title;
-                    titleElement.appendChild(linkElement);
-
-                    const dateElement = document.createElement('p');
-                    dateElement.textContent = post.date;
-                    dateElement.classList.add('blog-date');
-
-                    const contentElement = document.createElement('p');
-                    const shortContent = post.content.length > 100 ? post.content.substring(0, 100) + '...' : post.content;
-                    contentElement.innerHTML = shortContent; // HTML olarak içerik ekleniyor
-                    contentElement.classList.add('blog-content');
-
-                    const readMoreElement = document.createElement('a');
-                    readMoreElement.href = `map-detail.html?post=${post.index}`;
-                    readMoreElement.textContent = 'Read more';
-                    readMoreElement.classList.add('read-more');
-
-                    contentContainer.appendChild(titleElement);
-                    contentContainer.appendChild(dateElement);
-                    contentContainer.appendChild(contentElement);
-                    contentContainer.appendChild(readMoreElement);
-
-                    postElement.appendChild(contentContainer);
-
-                    if (post.thumbnail) {
-                        const thumbnailElement = document.createElement('img');
-                        thumbnailElement.src = post.thumbnail;
-                        thumbnailElement.alt = "Blog thumbnail";
-                        thumbnailElement.classList.add('normal-blog-thumbnail');
-                        postElement.appendChild(thumbnailElement);
-                    }
-
-                    blogPostsContainer.appendChild(postElement);
+                    blogPostsContainer.appendChild(createPostElement(post));
                 });
             };
 
-            const indexedData = data.map((post, index) => ({ ...post, index }));
+            // Arama fonksiyonu
+            const handleSearch = (searchTerm) => {
+                const filtered = data
+                    .map((post, index) => ({ ...post, index }))
+                    .filter(post => 
+                        post.title.toLowerCase().includes(searchTerm) || 
+                        post.content.toLowerCase().includes(searchTerm)
+                    );
+                renderPosts(filtered);
+            };
 
-            displayPosts(indexedData);
+            // İlk yükleme
+            renderPosts(data.map((post, index) => ({ ...post, index })));
 
+            // Arama input event listener
             searchBar.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const filteredPosts = indexedData.filter(post => post.title.toLowerCase().includes(searchTerm) || post.content.toLowerCase().includes(searchTerm));
-                displayPosts(filteredPosts);
+                handleSearch(e.target.value.toLowerCase());
             });
+
+            // URL'de search parametresi varsa
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('search')) {
+                searchBar.value = urlParams.get('search');
+                handleSearch(urlParams.get('search').toLowerCase());
+            }
         })
-        .catch(error => console.error('Error fetching blog posts:', error));
+        .catch(error => console.error('Veri yüklenirken hata oluştu:', error));
 });

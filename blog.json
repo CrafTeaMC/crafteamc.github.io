@@ -5,5 +5,40 @@
         "content": "<p>Bu mapdeki amaç sürekli devam etmekdir oyun eğer yaşarsanız sonsuza kadar devam eder. Eğer aynı odada hayaletle 15 saniye kalırsanız kaybedersiniz</p><p>İndirmek için <a href='https://dl.fingermaps.net/map-jam/plant-grandma'>tıklayın</a>.</p>",
         "images": ["foto.png", "foto2.png"],
         "thumbnail": "foto.png"
+    },
+    {
+        "title": "Paintball",
+        "date": "2024-07-26",
+        "content": "<p>Minecraft'ta arkadaşlarınızla paintball oynamak istediniz mi hiç? O zaman bu harita tam size göre! Şu anda, sadece takımsız, hızlı ölüm oyunu. Takım modu ve daha fazla harita gelecekte eklenecek!</p><p>İndirmek için <a href='https://dl.fingermaps.net/map-jam/plant-grandma'>tıklayın</a>.</p>",
+        "images": ["Paintball1.webp", "foto2.png"],
+        "thumbnail": "Paintball1.webp"
+    },
+    {
+        "title": "Plant Grandma",
+        "date": "2024-07-26",
+        "content": "<p>Bu mapdeki amaç sürekli devam etmekdir oyun eğer yaşarsanız sonsuza kadar devam eder. Eğer aynı odada hayaletle 15 saniye kalırsanız kaybedersiniz</p><p>İndirmek için <a href='https://dl.fingermaps.net/map-jam/plant-grandma'>tıklayın</a>.</p>",
+        "images": ["foto.png", "foto2.png"],
+        "thumbnail": "foto.png"
+    },
+    {
+        "title": "Plant Grandma",
+        "date": "2024-07-26",
+        "content": "<p>Bu mapdeki amaç sürekli devam etmekdir oyun eğer yaşarsanız sonsuza kadar devam eder. Eğer aynı odada hayaletle 15 saniye kalırsanız kaybedersiniz</p><p>İndirmek için <a href='https://dl.fingermaps.net/map-jam/plant-grandma'>tıklayın</a>.</p>",
+        "images": ["foto.png", "foto2.png"],
+        "thumbnail": "foto.png"
+    },
+    {
+        "title": "Plant Grandma",
+        "date": "2024-07-26",
+        "content": "<p>Bu mapdeki amaç sürekli devam etmekdir oyun eğer yaşarsanız sonsuza kadar devam eder. Eğer aynı odada hayaletle 15 saniye kalırsanız kaybedersiniz</p><p>İndirmek için <a href='https://dl.fingermaps.net/map-jam/plant-grandma'>tıklayın</a>.</p>",
+        "images": ["foto.png", "foto2.png"],
+        "thumbnail": "foto.png"
+    },
+    {
+        "title": "Plant Grandma",
+        "date": "2024-07-26",
+        "content": "<p>Bu mapdeki amaç sürekli devam etmekdir oyun eğer yaşarsanız sonsuza kadar devam eder. Eğer aynı odada hayaletle 15 saniye kalırsanız kaybedersiniz</p><p>İndirmek için <a href='https://dl.fingermaps.net/map-jam/plant-grandma'>tıklayın</a>.</p>",
+        "images": ["foto.png", "foto2.png"],
+        "thumbnail": "foto.png"
     }
 ]
