@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const readMore = document.createElement('a');
                 readMore.className = 'read-more';
                 readMore.href = `map-detail.html?post=${post.index}`;
-                readMore.textContent = 'Haritayı İncele →';
+                readMore.textContent = 'Haritayı İncele';
 
                 // Elemanları birleştirme
                 contentContainer.appendChild(titleLink);
