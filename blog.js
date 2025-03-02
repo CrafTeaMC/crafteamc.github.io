@@ -11,11 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Thumbnail kısmı
                 if (post.thumbnail) {
+                    // Thumbnail container ekle
+                    const thumbnailContainer = document.createElement('div');
+                    thumbnailContainer.className = 'thumbnail-container'; // Yeni CSS sınıfı
+                    
+                    // Resmi oluştur
                     const thumbnailImg = document.createElement('img');
                     thumbnailImg.src = post.thumbnail;
                     thumbnailImg.alt = `${post.title} thumbnail`;
                     thumbnailImg.className = 'normal-blog-thumbnail';
-                    postElement.appendChild(thumbnailImg);
+                    
+                    // Elemanları birleştir
+                    thumbnailContainer.appendChild(thumbnailImg);
+                    postElement.appendChild(thumbnailContainer); // Eski direkt ekleme yerine container ile
                 }
 
                 // İçerik konteynırı
