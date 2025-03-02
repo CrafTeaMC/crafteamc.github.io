@@ -37,6 +37,13 @@ nav ul li a {
 }
 
 .hero {
+    background-image: url('codes.png');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 1rem;
+}
+
+.hero2 {
     background-image: url('foto2.png');
     background-size: cover;
     background-position: center;
