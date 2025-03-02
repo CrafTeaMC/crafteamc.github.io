@@ -198,6 +198,10 @@ footer {
     color: white;
 }
 
+.blog-content img{
+    max-width: 800px;
+}
+
 .blog-thumbnail {
     max-width: 200px;
     max-height: 200px;
